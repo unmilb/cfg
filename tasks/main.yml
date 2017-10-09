@@ -1,0 +1,13 @@
+---
+# tasks file for cfg
+
+# Run Script to create a file of all cfg
+- command: /etc/ansible/roles/cfg/tasks/generate.sh
+
+- name: Creates directory
+  file: path=/usr/local/nagios/etc/objects/servers
+
+
+- copy: src=/home/temp-cfg/ dest=/usr/local/nagios/etc/objects/servers
+
+- command: /etc/init.d/nagios restart
